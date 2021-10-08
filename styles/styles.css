@@ -7,6 +7,8 @@
     --background-code: #050505;
 	--text: #CFCFCF;
     --text-code: #D6D6D6;
+    --text-code-highlight: #D6C13A;
+    --cellino-purple: #E029DB;
 }
 
 * {
@@ -64,13 +66,21 @@ h1 {
     font-size: 40px;
 }
 
+ul {
+    margin-top: 0.5rem;
+}
+
 li {
     list-style-position: inside;
 }
 
-a {
+ul a {
     text-decoration: none;
     color: var(--text);
+}
+
+a {
+    color: var(--cellino-purple);
 }
 
 footer {
@@ -86,11 +96,14 @@ footer {
 section h2 {
     border-bottom: solid;
     padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
 }
 
-section h3, p {
-    margin-bottom: 0.5rem;
+section h3 {
+    margin-top: 1.6rem;
+}
+
+section p {
+    margin-top: 1rem;
 }
 
 .console {
@@ -100,14 +113,12 @@ section h3, p {
     background: var(--background-code);
     padding: 1rem;
     border-radius: 0.5rem;
-}
-
-.console:last-child {
-    margin-bottom: 0;
+    margin-top: 0.5rem;
 }
 
 .console p {
-    margin-bottom: 0.05rem;
+    line-height: 1.4em;
+    margin: 0 0 0.5rem 0;
 }
 
 .console p:last-child {
@@ -117,6 +128,10 @@ section h3, p {
 .console p .fa-clone {
     float: right;
     display: none;
+}
+
+.console .comment {
+    font-style: italic;
 }
 
 .bash .console .command:before {
@@ -141,6 +156,19 @@ section h3, p {
 
 .powershell .console .comment span:before {
     content: "# ";
+}
+
+.powershell .console .cmdlet {
+    color: var(--text-code-highlight);
+}
+
+.snippet {
+    padding: 0.1rem 0.3rem;
+    font-family: 'Fira Code', 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    border-radius: 0.25rem;
+    color: var(--text-code);
+    background-color: var(--background-code);
 }
 
 @media screen and (min-width: 600px) {
@@ -183,11 +211,7 @@ section h3, p {
 
 @media screen and (min-width: 1200px) {
     header {
-        width: 50%;
+        width: 60%;
         margin: 1rem auto;
-    }
-
-    main {
-        width: 50%;
     }
 }

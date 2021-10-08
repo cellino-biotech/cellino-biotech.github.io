@@ -21,7 +21,16 @@
     </header>
 	<main>
         <section>
-            <h2>Select machine</h2>
+            <h2>Intro</h2>
+            <h3>Prerequisites</h3>
+            <p>
+                The main prerequisites for our development environment are <span class="snippet">git</span> and <span class="snippet">pyenv</span>. 
+                These tools help manage code repositories and local Python environments, respectively. Each developer also needs to configure
+                <span class="snippet">gcloud</span> as a way to authenticate access to our cloud services. Package managers, such as 
+                <a href="https://brew.sh/">homebrew</a> or <a href="https://chocolatey.org/">chocolatey</a>, are highly recommended to streamline 
+                installation procedures.
+            </p>
+            <h3>Select machine</h3>
             <ul>
                 <li><a href="#windows"><i class="fab fa-windows"></i> Windows</a></li>
                 <li><a href="#linux"><i class="fab fa-linux"></i> Linux</a></li>
@@ -30,16 +39,65 @@
         </section>
         <section id="windows" class="powershell">
             <h2>Windows</h2>
-            <h3>Lorem ipsum</h3>
+            <h3>Chocolatey</h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, velit? Sequi, ipsa ratione eligendi quam libero facilis atque, aperiam velit id asperiores qui? Deleniti id, corporis cum nihil obcaecati ad.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, velit? Sequi, ipsa ratione eligendi quam libero facilis atque, aperiam velit id asperiores qui? Deleniti id, corporis cum nihil obcaecati ad.
+                If not already installed, it is highly recommended to use <a href="https://chocolatey.org/">chocolatey</a> for general package management 
+                in Windows. Open an administrative shell (PowerShell) and download and run the installation script:
             </p>
             <div class="console">
-                <p class="command">hello world</p>
-                <p class="command">command enter</p>
+                <p class="command">
+                    <span class="cmdlet">Set-ExecutionPolicy</span> Bypass -Scope Process -Force; 
+                    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
+                    <span class="cmdlet">iex</span> ((<span class="cmdlet">New-Object</span> System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+                </p>
+            </div>
+            <h3>Git</h3>
+            <p>
+                Download the <a href="https://git-scm.com/download/win">git installer</a> and follow the guided installation. Most users prefer the default 
+                settings, though you may consider customizing the default text editor and shell application. Many current Cellino developers opt to use 
+                <span class="snippet">Git Bash</span>, especially if the individual is more familiar with <span class="snippet">bash</span> and Unix tools.
+            </p>
+            <h3>Pyenv</h3>
+            <p>
+                Though lacking some of the useful features found in <span class="snippet">pyenv</span>, <a href="https://github.com/pyenv-win/pyenv-win">pyenv-win</a> is 
+                still a great tool for managing different Python installations on your local machine. Install using chocolatey:
+            </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">choco</span> install pyenv-win</p>
+            </div>
+            <p>
+                Now you see why we pushed chocolatey <i class="far fa-laugh-beam"></i>
+            </p>
+            <p>
+                To install Python distributions, with version 3.9.6 as an example:
+            </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">pyenv</span> install 3.9.6</p>
+            </div>
+            <p>
+                Check to see all Python versions on local machine and configure scope settings:
+            </p>
+            <div class="console">
+                <p class="comment"><span>print list of installed Python versions</span></p>
+                <p class="command"><span class="cmdlet">pyenv</span> versions</p>
+                <p class="comment"><span>set Python 3.7 as the global executable</span></p>
+                <p class="command"><span class="cmdlet">pyenv</span> global 3.7.8</p>
+                <p class="comment"><span>set Python 3.9 as the local executable for the current working directory</span></p>
+                <p class="command"><span class="cmdlet">pyenv</span> local 3.9.6</p>
+            </div>
+            <p>
+                Unfortunately, <span class="snippet">pyenv-win</span> does not support virtual environment management. To create a virtual environment 
+                in Windows, first navigate to the <span class="snippet">venv</span> directory of the project repo and, after switching to the desired Python 
+                version, run:
+            </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">python</span> -m venv &lt;venv-name&gt;</p>
+            </div>
+            <p>
+                Each time you start a shell, the virtual environment will have to be activated:
+            </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">projectdir\venv\venv-name\Scripts\activate</span></p>
             </div>
         </section>
         <section id="linux" class="bash">
