@@ -12,8 +12,7 @@ curl https://pyenv.run | bash
 
 # update PATH variable and environment config
 echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc
+echo 'export PYENV_ROOT=$(pyenv root)' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/shims:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-
-# re-initialize shell to load updated variables
-exec "$SHELL"

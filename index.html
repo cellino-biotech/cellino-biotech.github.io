@@ -180,10 +180,38 @@
                 <p class="command">curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-linux.sh?token=AEJ6ATO54DHOSSWJLONQF5TBNL7OE | bash</p>
             </div>
             <p>
+                With successful completion, the terminal may output a message with instructions to update the PATH variable. This is a default message 
+                from the <span class="snippet">pyenv</span> developers and may be disregarded as these steps were automated in the script. After installation, 
+                reset the shell:
+            </p>
+            <div class="console">
+                <p class="command">exec "$SHELL"</p>
+            </div>
+            <p>
                 Confirm that pyenv has been installed correctly:
             </p>
             <div class="console">
                 <p class="command">pyenv --version</p>
+            </div>
+            <p>
+                Install the desired Python version (3.9.6 recommended):
+            </p>
+            <div class="console">
+                <p class="command">pyenv install 3.9.6</p>
+            </div>
+            <p>
+                Set the new Python distribution as the global executable:
+            </p>
+            <div class="console">
+                <p class="command">pyenv global 3.9.6</p>
+            </div>
+            <p>
+                Confirm that the commands <span class="snippet">python</span> and <span class="snippet">pip</span> point to the correct 
+                executables:
+            </p>
+            <div class="console">
+                <p class="command">which python</p>
+                <p class="command">which pip</p>
             </div>
             <h3>Gcloud</h3>
             <p>
