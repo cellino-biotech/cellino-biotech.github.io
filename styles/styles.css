@@ -151,11 +151,11 @@ section p {
 }
 
 .zsh .console .command:before {
-    content: "→ ";
+    content: "% ";
 }
 
 .zsh .console .comment:before {
-    content: "→ ";
+    content: "% ";
 }
 
 .zsh .console .comment span:before {
@@ -190,6 +190,7 @@ section p {
 .center {
     display: block;
     text-align: center;
+    margin-top: 1rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -212,7 +213,7 @@ section p {
 
 @media screen and (min-width: 960px) {
     body {
-        font-size: 19px;
+        font-size: 18px;
     }
 
     main {
@@ -231,6 +232,10 @@ section p {
 }
 
 @media screen and (min-width: 1200px) {
+    body {
+        font-size: 19px;
+    }
+
     header {
         width: 60%;
         margin: 1rem auto;

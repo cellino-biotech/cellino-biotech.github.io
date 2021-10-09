@@ -44,6 +44,11 @@
         </section>
         <section id="windows" class="powershell">
             <h2>Windows</h2>
+            <p>
+                Disclaimer: it is important to follow all steps in the order presented. Most packages rely on a package manager for installation. 
+                Furthermore, <span class="snippet">pyenv</span> depends on <span class="snippet">git</span> and <span class="snippet">gcloud</span> 
+                requires <span class="snippet">python</span>. Skipping steps will likely cause more headache than necessary.
+            </p>
             <h3>Chocolatey</h3>
             <p>
                 If not already installed, it is highly recommended to use <a href="https://chocolatey.org/">chocolatey</a> for general package management 
@@ -59,62 +64,89 @@
             <h3>Git</h3>
             <p>
                 Download the <a href="https://git-scm.com/download/win">git installer</a> and follow the guided installation. Most users prefer the default 
-                settings, though you may wish to customize the default text editor and shell application. Many Cellino developers prefer 
-                <span class="snippet">Git Bash</span>, especially if the individual is more familiar with <span class="snippet">bash</span> and Unix tools.
+                settings, though you may wish to customize the default text editor and shell application. Many developers prefer 
+                <span class="snippet">Git Bash</span>, especially if the individual is more familiar with <span class="snippet">bash</span> and Unix tools. 
+                Alternatively, install <span class="snippet">git</span> with <span class="snippet">chocolatey</span>:
             </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">choco</span> install git</p>
+            </div>
             <h3>Pyenv</h3>
             <p>
                 Though lacking some of the useful features found in <span class="snippet">pyenv</span>, <a href="https://github.com/pyenv-win/pyenv-win">pyenv-win</a> is 
-                a great tool for managing different Python installations on your local machine. Install using <span class="snippet">chocolatey</span> :
+                a great tool for managing different Python installations on Windows. Install using <span class="snippet">chocolatey</span> :
             </p>
             <div class="console">
                 <p class="command"><span class="cmdlet">choco</span> install pyenv-win</p>
             </div>
             <p>
-                Now you see why we pushed <span class="snippet">chocolatey</span> <i class="far fa-laugh-beam"></i>
+                Now you see why we pushed <span class="snippet">chocolatey</span> <i class="fas fa-laugh-beam"></i>
             </p>
             <p>
-                To install Python distributions, with version 3.9.6 as an example:
+                Confirm that pyenv has been installed correctly:
+            </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">pyenv</span> --version</p>
+            </div>
+            <p>
+                Install the desired Python version (3.9.6 recommended):
             </p>
             <div class="console">
                 <p class="command"><span class="cmdlet">pyenv</span> install 3.9.6</p>
             </div>
             <p>
-                Check to see all Python versions on local machine and configure scope settings:
+                Set the new Python distribution as the global executable:
             </p>
             <div class="console">
-                <p class="comment"><span>print list of installed Python versions</span></p>
-                <p class="command"><span class="cmdlet">pyenv</span> versions</p>
-                <p class="comment"><span>set Python 3.7 as the global executable</span></p>
-                <p class="command"><span class="cmdlet">pyenv</span> global 3.7.8</p>
-                <p class="comment"><span>set Python 3.9 as the local executable for the working directory</span></p>
-                <p class="command"><span class="cmdlet">pyenv</span> local 3.9.6</p>
+                <p class="command"><span class="cmdlet">pyenv</span> global 3.9.6</p>
             </div>
             <p>
                 Unfortunately, <span class="snippet">pyenv-win</span> does not support virtual environment management. To create a virtual environment 
-                in Windows, first navigate to the <span class="snippet">venv</span> directory of the project repo and, after switching to the desired Python 
-                version, run:
+                in Windows, first navigate to the <span class="snippet">venv</span> directory of the project repo, switch to the desired Python 
+                version, and run <span class="snippet">python -m venv</span>:
             </p>
             <div class="console">
+                <p class="command"><span class="cmdlet">Set-Location</span> projectdir\venv</p>
+                <p class="command"><span class="cmdlet">pyenv</span> local &lt;python-version&gt;</p>
                 <p class="command"><span class="cmdlet">python</span> -m venv &lt;venv-name&gt;</p>
             </div>
             <p>
-                Each time you start a shell, the virtual environment will have to be activated:
+                Each time you start a shell, the virtual environment will have to be manually activated:
             </p>
             <div class="console">
                 <p class="command"><span class="cmdlet">projectdir\venv\venv-name\Scripts\activate</span></p>
             </div>
             <h3>Gcloud</h3>
             <p>
-                I have no idea how to install gcloud.
+                Windows users have the option to install <a href="https://cloud.google.com/sdk/docs/install#windows">gcloud SDK</a> using the 
+                <a href="https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe">official installer</a> or the following PowerShell command:
+            </p>
+            <div class="console">
+                <p class="command">(New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe") & $env:Temp\GoogleCloudSDKInstaller.exe</p>
+            </div>
+            <p>
+                Follow the installation prompts. After successful installation, open a new console and run:
+            </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">gcloud</span> init</p>
+            </div>
+            <p>
+                This should redirect you to a browser window prompt. Login with your Cellino Google account credentials and then you will 
+                be authenticated for access to our cloud services.
             </p>
             <a href="#" class="center">Back to top</a>
         </section>
         <section id="mac" class="zsh">
             <h2>Mac</h2>
+            <p>
+                Disclaimer: it is important to follow all steps in the order presented. Most packages rely on a package manager for installation. 
+                Furthermore, <span class="snippet">pyenv</span> depends on <span class="snippet">git</span> and <span class="snippet">gcloud</span> 
+                requires <span class="snippet">python</span>. Skipping steps will likely cause more headache than necessary.
+            </p>
             <h3>Homebrew</h3>
             <p>
-                If not already installed, it is highly recommended to use <a href="https://brew.sh/">homebrew</a> for general package management in macOS:
+                If not already installed, it is highly recommended (and required for our automated scripts) to use <a href="https://brew.sh/">homebrew</a> 
+                for general package management in macOS:
             </p>
             <div class="console">
                 <p class="command">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</p>
@@ -127,7 +159,7 @@
                 <p class="command">brew install git</p>
             </div>
             <p>
-                Now you see why we pushed <span class="snippet">homebrew</span> <i class="far fa-laugh-beam"></i>
+                Now you see why we pushed <span class="snippet">homebrew</span> <i class="fas fa-laugh-beam"></i>
             </p>
             <h3>Pyenv</h3>
             <p>
@@ -140,22 +172,82 @@
                 For developers using <span class="snippet">zsh</span>:
             </p>
             <div class="console">
-                <p class="command">curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.zsh?token=AEJ6ATN2U5D54LTK7SPZIOTBNLWW2 | zsh</p>
+                <p class="command">curl "https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.zsh?token=AEJ6ATN2U5D54LTK7SPZIOTBNLWW2" | zsh</p>
             </div>
             <p>
-                For developers committed to <span class="snippet">bash</span> (don't tell Steven <i class="far fa-quiet"></i>):
+                For developers committed to <span class="snippet">bash</span> (don't tell Steven <i class="fas fa-grin-tongue"></i>):
             </p>
             <div class="console">
                 <p class="command">curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.sh?token=AEJ6ATOQS4T646ZRS27CJ4LBNLXHI | bash</p>
             </div>
+            <p>
+                With successful completion, the terminal may output a message with instructions to update the PATH variable. This is a default message 
+                from the <span class="snippet">pyenv</span> developers and may be disregarded as these steps were automated in the script. After installation, 
+                reset the shell:
+            </p>
+            <div class="console">
+                <p class="command">exec "$SHELL"</p>
+            </div>
+            <p>
+                Confirm that pyenv has been installed correctly:
+            </p>
+            <div class="console">
+                <p class="command">pyenv --version</p>
+            </div>
+            <p>
+                Install the desired Python version (3.9.6 recommended):
+            </p>
+            <div class="console">
+                <p class="command">pyenv install 3.9.6</p>
+            </div>
+            <p>
+                Set the new Python distribution as the global executable:
+            </p>
+            <div class="console">
+                <p class="command">pyenv global 3.9.6</p>
+            </div>
+            <p>
+                Confirm that the commands <span class="snippet">python</span> and <span class="snippet">pip</span> point to the correct 
+                executables:
+            </p>
+            <div class="console">
+                <p class="command">which python</p>
+                <p>/Users/user/.pyenv/shims/python</p>
+                <p class="command">which pip</p>
+                <p>/Users/user/.pyenv/shims/pip</p>
+            </div>
+            <p>
+                If the terminal output for each path does not include <span class="snippet">.pyenv/shims</span>, then try restarting the 
+                console and run the commands a second time. If the output still resembles <span class="snippet">/usr/bin/python</span>, 
+                then please contact the software team for troubleshooting.
+            </p>
             <h3>Gcloud</h3>
             <p>
-                I have no idea how to install gcloud.
+                Installing the <a href="https://cloud.google.com/sdk/docs/install#mac">gcloud SDK</a> is slightly more complicated on macOS 
+                if following the manual install. Fortunately, we have <span class="snippet">homebrew</span>:
+            </p>
+            <div class="console">
+                <p class="command">brew install --cask google-cloud-sdk</p>
+            </div>
+            <p>
+                Follow the installation prompts. After successful installation, reset the terminal and run:
+            </p>
+            <div class="console">
+                <p class="command">gcloud init</p>
+            </div>
+            <p>
+                This should redirect you to a browser window prompt. Login with your Cellino Google account credentials and then you will 
+                be authenticated for access to our cloud services.
             </p>
             <a href="#" class="center">Back to top</a>
         </section>
         <section id="linux" class="bash">
             <h2>Linux</h2>
+            <p>
+                Disclaimer: it is important to follow all steps in the order presented. Most packages rely on a package manager for installation. 
+                Furthermore, <span class="snippet">pyenv</span> depends on <span class="snippet">git</span> and <span class="snippet">gcloud</span> 
+                requires <span class="snippet">python</span>. Skipping steps will likely cause more headache than necessary.
+            </p>
             <h3>Package managers</h3>
             <p>
                 Each Linux flavor has its own default package manager, e.g., <span class="snippet">apt</span>, <span class="snippet">yum</span>, 
@@ -211,25 +303,178 @@
             </p>
             <div class="console">
                 <p class="command">which python</p>
+                <p>/Users/user/.pyenv/shims/python</p>
                 <p class="command">which pip</p>
+                <p>/Users/user/.pyenv/shims/pip</p>
             </div>
+            <p>
+                If the terminal output for each path does not include <span class="snippet">.pyenv/shims</span>, then try restarting the 
+                console and run the commands a second time. If the output still resembles <span class="snippet">/usr/bin/python</span>, 
+                then please contact the software team for troubleshooting.
+            </p>
             <h3>Gcloud</h3>
             <p>
-                I have no idea how to install gcloud.
+                For Linux users, the easiest way to install <a href="https://cloud.google.com/sdk/docs/downloads-snap">gcloud SDK</a> is 
+                via the <span class="snippet">snap</span> package manager, which comes pre-installed on all modern Ubuntu systems:
+            </p>
+            <div class="console">
+                <p class="command">snap install google-cloud-sdk --classic</p>
+            </div>
+            <p>
+                Follow the installation prompts. After successful installation, open a new console and run:
+            </p>
+            <div class="console">
+                <p class="command">gcloud init</p>
+            </div>
+            <p>
+                This should redirect you to a browser window prompt. Login with your Cellino Google account credentials and then you will 
+                be authenticated for access to our cloud services.
             </p>
             <a href="#" class="center">Back to top</a>
         </section>
-        <section>
+        <section class="bash">
             <h2>Git</h2>
+            <h3>Configuration</h3>
             <p>
-                This will be a more thorough tutorial on <span class="snippet">git</span>.
+                Once <span class="snippet">git</span> is installed on your machine, complete your system configuration to automatically sign 
+                commits&mdash;remember to use the email address associated with your github account:
             </p>
+            <div class="console">
+                <p class="command">git config --global user.name "John Doe"</p>
+                <p class="command">git config --global user.email johndoe@example.com</p>
+            </div>
+            <h3>Cloning repositories</h3>
+            <p>
+                Before cloning a repo, follow the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">online documentation</a>
+                to configure ssh credentials for your machine. These credentials are linked to your github account and allow authentication without a password, 
+                which saves a significant amount of time when pushing frequent changes.
+            </p>
+            <p>
+                To create a local version of a repo, copy the ssh web address of the project and, with the ZarrSurfer repo as an example, run the 
+                <span class="snippet">clone</span> operation:
+            </p>
+            <div class="console">
+                <p class="command">git clone git@github.com:cellino-biotech/zarr_surfer.git</p>
+            </div>
+            <h3>Branch management</h3>
+            <p>
+                To create a local branch:
+            </p>
+            <div class="console">
+                <p class="command">git branch &lt;branch-name&gt;</p>
+            </div>
+            <p>
+                To switch branches:
+            </p>
+            <div class="console">
+                <p class="command">git checkout &lt;branch-name&gt;</p>
+            </div>
+            <p>
+                As a shorthand:
+            </p>
+            <div class="console">
+                <p class="command">git checkout -b &lt;branch-name&gt;</p>
+            </div>
+            <p>
+                To push a local branch to remote:
+            </p>
+            <div class="console">
+                <p class="command">git push origin -u &lt;branch-name&gt;</p>
+            </div>
+            <p>
+                To delete a local branch and remove it from the repo:
+            </p>
+            <div class="console">
+                <p class="command">git push origin -d &lt;branch-name&gt;</p>
+                <p class="command">git branch -d &lt;branch-name&gt;</p>
+                <p class="comment"><span>some cases may require forced deletion</span></p>
+                <p class="command">git branch -D &lt;branch-name&gt;</p>
+            </div>
+            <h3>Pushing/merging changes</h3>
+            <p>
+                To push all changes to a branch:
+            </p>
+            <div class="console">
+                <p class="command">git add -A</p>
+                <p class="command">git add -m "brief message describing the changes"</p>
+                <p class="command">git push</p>
+            </div>
+            <p>
+                If not all changes are desired, you can either <span class="snippet">restore</span> individual files to their
+                previous state or <span class="snippet">stash</span> changes for future work:
+            </p>
+            <div class="console">
+                <p class="comment"><span>restore file</span></p>
+                <p class="command">git restore path/to/file</p>
+                <p class="comment"><span>add specific file to commit</span></p>
+                <p class="command">git add path/to/file</p>
+                <p class="comment"><span>stash remaining changes</span></p>
+                <p class="command">git stash</p>
+            </div>
+            <p>
+                To merge changes with another branch:
+            </p>
+            <div class="console">
+                <p class="command">git checkout &lt;branch-name&gt;</p>
+                <p class="command">git merge &lt;branch-with-changes&gt;</p>
+            </div>
             <a href="#" class="center">Back to top</a>
         </section>
-        <section>
+        <section class="bash">
             <h2>Pyenv</h2>
+            <h3>Python installation</h3>
             <p>
-                This will be a more thorough tutorial on <span class="snippet">pyenv</span>.
+                To see all Python versions available for download:
+            </p>
+            <div class="console">
+                <p class="command"><span class="cmdlet">pyenv</span> install --list</p>
+            </div>
+            <p>
+                Note: this listing is extensive and can be focused by piping the output to <span class="snippet">grep</span>.
+            </p>
+            <p>
+                To install Python distributions, with version 3.9.6 as an example:
+            </p>
+            <div class="console">
+                <p class="command">pyenv install 3.9.6</p>
+                <p class="comment"><span>use the -v option to print updates during installation</span></p>
+                <p class="command">pyenv install -v 3.9.6</p>
+            </div>
+            <h3>Scope configuration</h3>
+            <p>
+                Check to see all Python versions on local machine and configure scope settings:
+            </p>
+            <div class="console">
+                <p class="comment"><span>print list of installed Python versions</span></p>
+                <p class="command">pyenv versions</p>
+                <p>*system (set by /Users/user/.pyenv/version)</p>
+                <p>&nbsp;3.7.8</p>
+                <p>&nbsp;3.9.6</p>
+                <p class="comment"><span>set Python 3.7.8 as the global executable</span></p>
+                <p class="command">pyenv global 3.7.8</p>
+                <p class="comment"><span>set Python 3.9 as the local executable for the working directory</span></p>
+                <p class="command">pyenv local 3.9.6</p>
+            </div>
+            <h3>Virtual environments</h3>
+            <p>
+                Unfortunately, <span class="snippet">pyenv virtualenv</span> is not available for Windows. On Mac and Linux, virtual environments 
+                can be created by specifying the Python version and environment name:
+            </p>
+            <div class="console">
+                <p class="command">pyenv virtualenv 3.7.8 &lt;env-name&gt;</p>
+            </div>
+            <p>
+                It is not necessary for the environment to be created in a specific directory, as is the case with <span class="snippet">venv</span>.
+            </p>
+            <p>
+                To link the environment with a project, simply navigate to the directory and set the local Python as the environment name:
+            </p>
+            <div class="console">
+                <p class="command">cd projectdir</p>
+                <p class="command">pyenv local &lt;env-name&gt;</p>
+            </div>
+            <p>
+                Now, every time that directory is entered, the virtual environment will load automatically.
             </p>
             <a href="#" class="center">Back to top</a>
         </section>
