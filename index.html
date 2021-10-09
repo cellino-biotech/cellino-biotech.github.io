@@ -33,8 +33,8 @@
             <h3>Select machine</h3>
             <ul>
                 <li><a href="#windows"><i class="fab fa-windows"></i> Windows</a></li>
-                <li><a href="#linux"><i class="fab fa-linux"></i> Linux</a></li>
                 <li><a href="#mac"><i class="fab fa-apple"></i> Mac</a></li>
+                <li><a href="#linux"><i class="fab fa-linux"></i> Linux</a></li>
             </ul>
             <h3>Other tutorials</h3>
             <ul>
@@ -59,13 +59,13 @@
             <h3>Git</h3>
             <p>
                 Download the <a href="https://git-scm.com/download/win">git installer</a> and follow the guided installation. Most users prefer the default 
-                settings, though you may consider customizing the default text editor and shell application. Many current Cellino developers opt to use 
+                settings, though you may wish to customize the default text editor and shell application. Many Cellino developers prefer 
                 <span class="snippet">Git Bash</span>, especially if the individual is more familiar with <span class="snippet">bash</span> and Unix tools.
             </p>
             <h3>Pyenv</h3>
             <p>
                 Though lacking some of the useful features found in <span class="snippet">pyenv</span>, <a href="https://github.com/pyenv-win/pyenv-win">pyenv-win</a> is 
-                still a great tool for managing different Python installations on your local machine. Install using chocolatey:
+                a great tool for managing different Python installations on your local machine. Install using <span class="snippet">chocolatey</span> :
             </p>
             <div class="console">
                 <p class="command"><span class="cmdlet">choco</span> install pyenv-win</p>
@@ -87,7 +87,7 @@
                 <p class="command"><span class="cmdlet">pyenv</span> versions</p>
                 <p class="comment"><span>set Python 3.7 as the global executable</span></p>
                 <p class="command"><span class="cmdlet">pyenv</span> global 3.7.8</p>
-                <p class="comment"><span>set Python 3.9 as the local executable for the current working directory</span></p>
+                <p class="comment"><span>set Python 3.9 as the local executable for the working directory</span></p>
                 <p class="command"><span class="cmdlet">pyenv</span> local 3.9.6</p>
             </div>
             <p>
@@ -104,17 +104,11 @@
             <div class="console">
                 <p class="command"><span class="cmdlet">projectdir\venv\venv-name\Scripts\activate</span></p>
             </div>
-        </section>
-        <section id="linux" class="bash">
-            <h2>Linux</h2>
-            <h3>Lorem ipsum</h3>
+            <h3>Gcloud</h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, velit? Sequi, ipsa ratione eligendi quam libero facilis atque, aperiam velit id asperiores qui? Deleniti id, corporis cum nihil obcaecati ad.
+                I have no idea how to install gcloud.
             </p>
-            <div class="console">
-                <p class="command">hello world</p>
-                <p class="command">command enter</p>
-            </div>
+            <a href="#" class="center">Back to top</a>
         </section>
         <section id="mac" class="zsh">
             <h2>Mac</h2>
@@ -137,16 +131,70 @@
             </p>
             <h3>Pyenv</h3>
             <p>
-                Installing <span class="snippet">pyenv</span> on macOS can be cumbersome because it requires build dependencies and modification of the 
-                environment profile. For a manual installation, follow the <a href="https://realpython.com/intro-to-pyenv/">instructions from RealPython</a>. 
-                Alternatively, execute the following command to run our in-house install script.
+                Installing <span class="snippet">pyenv</span> on macOS requires build dependencies and modification of the environment profile. For a manual 
+                installation, follow the <a href="https://realpython.com/intro-to-pyenv/">instructions from RealPython</a>. Alternatively, execute the following 
+                command to run our in-house install script. Be sure to run the correct command for your shell, as the setup configuration is specific to 
+                <span class="snippet">zsh</span> or <span class="snippet">bash</span>.
             </p>
             <p>
-                For developers using zsh:
+                For developers using <span class="snippet">zsh</span>:
             </p>
             <div class="console">
-                <p class="command">wget</p>
+                <p class="command">curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.zsh?token=AEJ6ATN2U5D54LTK7SPZIOTBNLWW2 | zsh</p>
             </div>
+            <p>
+                For developers committed to <span class="snippet">bash</span> (don't tell Steven <i class="far fa-quiet"></i>):
+            </p>
+            <div class="console">
+                <p class="command">curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.sh?token=AEJ6ATOQS4T646ZRS27CJ4LBNLXHI | bash</p>
+            </div>
+            <h3>Gcloud</h3>
+            <p>
+                I have no idea how to install gcloud.
+            </p>
+            <a href="#" class="center">Back to top</a>
+        </section>
+        <section id="linux" class="bash">
+            <h2>Linux</h2>
+            <h3>Package managers</h3>
+            <p>
+                Each Linux flavor has its own default package manager, e.g., <span class="snippet">apt</span>, <span class="snippet">yum</span>, 
+                and <span class="snippet">zypper</span>. This tutorial focuses on Ubuntu-based distributions, which include Mint and Pop_OS!. 
+                Reference materials will be linked for installation on other distros.
+            </p>
+            <h3>Git</h3>
+            <p>
+                To install <a href="https://git-scm.com/download/linux">git</a>:
+            </p>
+            <div class="console">
+                <p class="command">sudo apt-get install git</p>
+            </div>
+            <h3>Pyenv</h3>
+            <p>
+                Similar to macOS, <span class="snippet">pyenv</span> installation on Linux requires build dependencies and modification of the 
+                environment profile. For a manual installation, follow the <a href="https://realpython.com/intro-to-pyenv/">instructions from RealPython</a>. 
+                Alternatively, execute the following command to run our in-house install script. Note that this script only works for users working 
+                with <span class="snippet">bash</span>.
+            </p>
+            <h3>Gcloud</h3>
+            <p>
+                I have no idea how to install gcloud.
+            </p>
+            <a href="#" class="center">Back to top</a>
+        </section>
+        <section>
+            <h2>Git</h2>
+            <p>
+                This will be a more thorough tutorial on <span class="snippet">git</span>.
+            </p>
+            <a href="#" class="center">Back to top</a>
+        </section>
+        <section>
+            <h2>Pyenv</h2>
+            <p>
+                This will be a more thorough tutorial on <span class="snippet">pyenv</span>.
+            </p>
+            <a href="#" class="center">Back to top</a>
         </section>
 	</main>
 	<footer>

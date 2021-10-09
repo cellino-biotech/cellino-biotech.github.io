@@ -2,10 +2,12 @@
 
 # installs pyenv and prepares environment profile
 
-# install build dependencies with homebrew
-brew install openssl readline sqlite3 xz zlib
+# install build dependencies
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl
 
-# download pyenv installer and execute with bash
+# download and run pyenv installer
 curl https://pyenv.run | bash
 
 # update PATH variable and environment config

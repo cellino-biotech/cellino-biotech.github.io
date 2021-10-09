@@ -187,6 +187,11 @@ section p {
     background-color: var(--background-code);
 }
 
+.center {
+    display: block;
+    text-align: center;
+}
+
 @media screen and (min-width: 600px) {
     header {
         margin: 1rem;
