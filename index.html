@@ -36,6 +36,11 @@
                 <li><a href="#linux"><i class="fab fa-linux"></i> Linux</a></li>
                 <li><a href="#mac"><i class="fab fa-apple"></i> Mac</a></li>
             </ul>
+            <h3>Other tutorials</h3>
+            <ul>
+                <li><a href="#git"><i class="fab fa-github"></i> git</a></li>
+                <li><a href="#pyenv"><i class="fab fa-python"></i> pyenv</a></li>
+            </ul>
         </section>
         <section id="windows" class="powershell">
             <h2>Windows</h2>
@@ -66,7 +71,7 @@
                 <p class="command"><span class="cmdlet">choco</span> install pyenv-win</p>
             </div>
             <p>
-                Now you see why we pushed chocolatey <i class="far fa-laugh-beam"></i>
+                Now you see why we pushed <span class="snippet">chocolatey</span> <i class="far fa-laugh-beam"></i>
             </p>
             <p>
                 To install Python distributions, with version 3.9.6 as an example:
@@ -111,15 +116,36 @@
                 <p class="command">command enter</p>
             </div>
         </section>
-        <section id="mac" class="bash">
+        <section id="mac" class="zsh">
             <h2>Mac</h2>
-            <h3>Lorem ipsum</h3>
+            <h3>Homebrew</h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, velit? Sequi, ipsa ratione eligendi quam libero facilis atque, aperiam velit id asperiores qui? Deleniti id, corporis cum nihil obcaecati ad.
+                If not already installed, it is highly recommended to use <a href="https://brew.sh/">homebrew</a> for general package management in macOS:
             </p>
             <div class="console">
-                <p class="command">hello world</p>
-                <p class="command">command enter</p>
+                <p class="command">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</p>
+            </div>
+            <h3>Git</h3>
+            <p>
+                With <span class="snippet">homebrew</span>, install git:
+            </p>
+            <div class="console">
+                <p class="command">brew install git</p>
+            </div>
+            <p>
+                Now you see why we pushed <span class="snippet">homebrew</span> <i class="far fa-laugh-beam"></i>
+            </p>
+            <h3>Pyenv</h3>
+            <p>
+                Installing <span class="snippet">pyenv</span> on macOS can be cumbersome because it requires build dependencies and modification of the 
+                environment profile. For a manual installation, follow the <a href="https://realpython.com/intro-to-pyenv/">instructions from RealPython</a>. 
+                Alternatively, execute the following command to run our in-house install script.
+            </p>
+            <p>
+                For developers using zsh:
+            </p>
+            <div class="console">
+                <p class="command">wget</p>
             </div>
         </section>
 	</main>

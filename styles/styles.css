@@ -8,7 +8,7 @@
 	--text: #CFCFCF;
     --text-code: #D6D6D6;
     --text-code-highlight: #D6C13A;
-    --cellino-purple: #E029DB;
+    --links: #E029DB;
 }
 
 * {
@@ -54,7 +54,7 @@ header h1 {
 
 section {
     position: relative;
-    margin: 2rem auto;
+    margin: 1rem auto;
 }
 
 h1, h2, h3, h4 {
@@ -67,7 +67,7 @@ h1 {
 }
 
 ul {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
 li {
@@ -80,7 +80,7 @@ ul a {
 }
 
 a {
-    color: var(--cellino-purple);
+    color: var(--links);
 }
 
 footer {
@@ -95,6 +95,7 @@ footer {
 
 section h2 {
     border-bottom: solid;
+    padding-top: 1rem;
     padding-bottom: 0.5rem;
 }
 
@@ -117,7 +118,9 @@ section p {
 }
 
 .console p {
-    word-wrap: break-word;
+    /* overflow-wrap: break-word; */
+    /* overflow: hidden; */
+    word-break: break-all;
     line-height: 1.4em;
     margin: 0 0 0.5rem 0;
 }
@@ -144,6 +147,18 @@ section p {
 }
 
 .bash .console .comment span:before {
+    content: "# ";
+}
+
+.zsh .console .command:before {
+    content: "→ ";
+}
+
+.zsh .console .comment:before {
+    content: "→ ";
+}
+
+.zsh .console .comment span:before {
     content: "# ";
 }
 
