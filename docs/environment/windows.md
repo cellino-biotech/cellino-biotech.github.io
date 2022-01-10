@@ -1,8 +1,8 @@
 # Windows
 > Windows Disclaimer: it is important to follow all steps in the order presented. Most packages rely on a package manager for installation. Furthermore, `pyenv` depends on `git` and `gcloud` requires a python environment through `pyenv`. Skipping steps will likely cause more headache than necessary.
 
- ## Chocolatey 
- If not already installed, it is highly recommended to use [chocolatey](https://chocolatey.org/) for general package management in Windows. Open an administrative shell (PowerShell) and download and run the installation script:
+## Chocolatey 
+If not already installed, it is highly recommended to use [chocolatey](https://chocolatey.org/) for general package management in Windows. Open an administrative shell (PowerShell) and download and run the installation script:
 
 ```ps1
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) 
