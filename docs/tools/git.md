@@ -4,8 +4,9 @@
 * `git` installation
 * github account
 * Access to github the organization: cellino-biotech
+
 ## Configuration
-Once `git` is installed on your machine, complete your system configuration to automatically sign commits—remember to use the email address associated with your github account:
+Once `git` is installed on your machine, complete your system configuration to automatically sign commits&mdash;remember to use the email address associated with your github account:
 
 ```sh
 git config --global user.name "John Doe" git config --global user.email johndoe@example.com
@@ -18,7 +19,8 @@ Before cloning a repo, follow the [online documentation](https://docs.github.com
 git clone git@github.com:cellino-biotech/zarr_surfer.git
 ```
 
-## Branch management To create a local branch:
+## Branch management 
+To create a local branch:
 
 ```sh
 git branch <branch-name>

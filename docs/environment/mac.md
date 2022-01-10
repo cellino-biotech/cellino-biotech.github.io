@@ -22,16 +22,16 @@ Installing `pyenv` on macOS requires build dependencies and modification of the 
 * For developers using zsh:
 
 ```zsh
-curl "https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.zsh?token=AEJ6ATN2U5D54LTK7SPZIOTBNLWW2" | zsh
+curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.zsh | zsh
 ```
 
 * For developers committed to bash:
 
 ```sh
-curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.sh?token=AEJ6ATOQS4T646ZRS27CJ4LBNLXHI | bash
+curl https://raw.githubusercontent.com/cellino-biotech/cellino-biotech.github.io/main/scripts/pyenv-install-mac.sh | bash
 ```
 
-With successful completion, the terminal may output a message with instructions to update the PATH variable. This is a default message from the `pyenv` developers and may be disregarded as these steps were automated in the script. After installation, reset the shell:
+With successful completion, the terminal may output a message with instructions to update the PATH variable. This is a default message from the `pyenv` developers and may be **disregarded** as these steps were automated in the script. After installation, reset the shell:
 
 ```zsh
 exec "$SHELL"
@@ -55,14 +55,15 @@ Set the new Python distribution as the global executable:
 pyenv global 3.9.6
 ```
 
-Confirm that the commands python and pip point to the correct executables (path should include the indicated `.pyenv` directory):
+Confirm that the commands `python` and `pip` point to the correct executables (path should include the indicated `.pyenv` directory):
 
 ```zsh
 which python # /Users/user/.pyenv/shims/python
 which pip # /Users/user/.pyenv/shims/pip
 ```
 
-If the terminal output for each path does not include .pyenv/shims, then try restarting the console and run the commands a second time. If the output still resembles /usr/bin/python, alter your `.bashrc` (your terminal config) as follows
+### Troubleshooting
+If the terminal output for each path does not include .pyenv/shims, then try restarting the console and run the commands a second time. If the output still resembles `/usr/bin/python`, alter your `.bashrc` (your terminal config) as follows:
 ```sh
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile

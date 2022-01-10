@@ -1,6 +1,7 @@
 # Pyenv
 ## Prerequisites
 * `pyenv` installation
+
 ## Python installation
 To see all Python versions available for download:
 
@@ -32,12 +33,12 @@ Configure global and local Python versions
 ```sh
 # set Python 3.7.8 as the global executable
 pyenv global 3.7.8
-# set Python 3.9 as the local executable for the working directory
+# set Python 3.9.6 as the local executable for the working directory
 pyenv local 3.9.6
 ```
 
 ## Virtual environments
-Unfortunately, pyenv virtualenv is not available for Windows. On Mac and Linux, virtual environments can be created by specifying the Python version and environment name:
+Unfortunately, `pyenv virtualenv` is not available for Windows. On Mac and Linux, virtual environments can be created by specifying the Python version and environment name:
 
 ```sh
 pyenv virtualenv 3.7.8 <env-name>
