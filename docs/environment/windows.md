@@ -1,25 +1,26 @@
 # Windows
-> Windows Disclaimer: it is important to follow all steps in the order presented. Most packages rely on a package manager for installation. Furthermore, `pyenv` depends on `git` and `gcloud` requires a python environment through `pyenv`. Skipping steps will likely cause more headache than necessary.
+> Disclaimer: **Please follow all steps in the order presented:** `pyenv` depends on `git` and `gcloud` requires a python environment through `pyenv`. Most library installations rely on a package manager, such as chocolatey.
 
 ## Chocolatey 
-If not already installed, it is highly recommended to use [chocolatey](https://chocolatey.org/) for general package management in Windows. Open an administrative shell (PowerShell) and download and run the installation script:
+[Chocolatey](https://chocolatey.org/) is highly recommended for general package management in Windows. To install this tool, open an administrative PowerShell instance and execute the following command:
 
 ```ps1
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) 
 ```
+
 ## Git
-* Method 1 (preferred): Download the [git installer](https://git-scm.com/download/win) and follow the guided installation. Most users prefer the default settings, though you may wish to customize the default text editor and shell application. Many developers prefer `Git Bash`, especially if the individual is more familiar with `bash` and Unix tools.
+* Method 1: Download the [git installer](https://git-scm.com/download/win) executable and follow the guided installation. Most users accept the default settings, though you may wish to choose a different text editor and shell application. Many developers prefer `Git Bash`, especially if the individual is more familiar with `bash` and Unix tools.
 
-* Method 2: Alternatively, install `git` with `chocolatey`:
+* Method 2: Install `git` with `chocolatey`:
 
-```sh
+```ps1
 choco install git
 ```
 
 ## Pyenv
-Though lacking some of the useful features found in `pyenv`, [pyenv-win](https://github.com/pyenv-win/pyenv-win) is a great tool for managing different Python installations on Windows. Install using `chocolatey` :
+Though lacking some of the useful features found in `pyenv`, [pyenv-win](https://github.com/pyenv-win/pyenv-win) is a great tool for managing different Python installations in Windows:
 
-```sh
+```ps1
 choco install pyenv-win
 ```
 
@@ -41,13 +42,13 @@ Set the new Python distribution as the global executable:
 pyenv global 3.9.6
 ```
 
-Unfortunately, `pyenv-win` does not support virtual environment management. To create a virtual environment in Windows, first create a local `venv` directory, then navigate to the project directory, switch to the desired Python version, and run `python -m venv`:
+Unfortunately, `pyenv-win` does not support virtual environment management. To create a virtual environment in Windows, first create a local `virtualenvs` directory, then navigate to the project directory, set the desired local Python version, and run `python -m venv`:
 
-```sh
-mkdir ~/.virtualenvs
+```ps1
+mkdir ~\.virtualenvs
 cd <PROJECT_DIR>
 pyenv local 3.9.6 # or your preferred python dist
-python -m venv ~/.virtualenvs/<VENV NAME>
+python -m venv ~\.virtualenvs\<VENV NAME>
 ```
 
 Each time you start a shell, the virtual environment will have to be manually activated. 
@@ -61,8 +62,8 @@ source ~/.virtualenvs//<VENV NAME>/Scripts/activate
 
 For PowerShell:
 
-```sh
-~/.virtualenvs//<VENV NAME>/Scripts/activate
+```ps1
+~\.virtualenvs\<VENV NAME>\Scripts\activate
 
 ```
 > VSCode NOTE: If your virtual environment is located in your User `.virtualenvs` folder, VS Code can detect your environments and use them to set a workspace's [Python Interpreter](https://code.visualstudio.com/docs/python/environments)
