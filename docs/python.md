@@ -173,7 +173,7 @@ The global version will become the default Python for your shell.
 Confirm that `python` and `pip` point to the correct executables.
 
 ```ps1
- (Get-Command python).Source && (Get-Command pip).Source
+(Get-Command python).Source && (Get-Command pip).Source
 C:\Users\user\.pyenv\shims\python
 C:\Users\user\.pyenv\shims\pip
 ```
